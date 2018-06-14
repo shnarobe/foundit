@@ -1,0 +1,277 @@
+/*remove margins from 2nd nav so that 3rd nav with menu fits without any breaks/space.*/
+#top {
+margin:0 0 0 0;	
+border-bottom:none;
+	
+}
+/*set styles for elements in top nav bars, e.g my account and wish list*/
+#top .btn-link, #top-links li, #top-links a {
+    color: #ffffff;
+    text-decoration: none;
+	text-shadow:none;
+}
+#top .btn-link:hover, #top-links li:hover,  #top-links a:hover {
+    color: #fff;
+	background-color:transparent;
+}
+
+#top-links .dropdown{/*dropdowns like my account*/
+	
+	position: relative;
+    display: inline-block;
+}
+#top-links .dropdown-menu{/*hide my account sub menu by default*/
+display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+	color: #3c4a55;
+	
+}
+
+#top-links .dropdown-menu li a{/*the color of the links in the drop down menu*/
+display: block;
+   	color: #3c4a55;
+	
+}
+
+#top-links .dropdown-menu li a:hover {/*style for the links when the items inside my account is hovered over*/
+    text-shadow: none;
+    color: #ffffff;
+	background-color:RGB(255,123,36);
+	background-image:none;
+}
+
+#top-links .dropdown:hover .dropdown-menu {/*show the dropdown menu on hover over dropdown class.style for the sub menus like account->login or account->register and seller accounthover over drop down menu for my account*/
+    display: block;
+	z-index:9999;
+	margin-top:-2px;
+	text-shadow: none;
+    
+	
+	
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    font-size:15px
+ 
+}
+
+
+
+
+/*#top-links .dropdown-menu > li > a {/*style for the sub menus like account->login or account->register and seller account
+    text-shadow: none;
+    color: #3c4a55;
+	display: block;
+	 padding: 6px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #878c94; 
+    font-size:15px
+    white-space: nowrap;
+}*/
+
+
+
+
+/*style for menues like desktops in the default normal state*/
+#menu .nav > li > a{
+	color:#191970;
+	text-decoration:none;
+	font-size:14px;
+	text-shadow:none;
+}
+/*set hover style for top category menus, such as desktops etc*/
+#menu .nav > li > a:hover, #menu .nav > li.open > a {
+	color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color:RGB(255,123,36);
+	font-size:14px;
+	text-shadow:none;
+	/*#FF4500;#df5c39;
+   /* background-image: linear-gradient(to bottom, #e06342, #dc512c);
+    background-repeat: repeat-x;
+    border-color: #dc512c #dc512c #a2371a;
+	border-radius:4px 4px 4px 4px;*/
+}
+#menu .dropdown-inner a{/*set color of links in submenu categories such as desktops->dell*/
+	color:#000000;/*#3c4a55;*/
+}
+/* hover style for the submenu under each category, such as desktops->dell*/
+#menu .dropdown-menu li a:hover{
+	background-image:none;
+	background-color:RGB(255,123,36);/*#df5c39;*/
+	
+	
+}
+#menu .see-all {/* link at the bottom of submenu categories, e.g see all desktops*/
+	color:#000000;/*df5c39;*/
+	
+}
+#menu .see-all:hover, #menu .see-all:focus{
+	 background-color: RGB(255,123,36);/*#df5c39;*/
+   /* background-image: linear-gradient(to bottom, #e06342, #dc512c);
+    background-repeat: repeat-x;
+	*/
+}
+/*styles fo r the featured,latest and best seller modules*/
+#kfeature-head,#kbestseller-head,#klatest-head{
+	border-bottom: 2px solid #ddd;
+  
+  height: 38px;
+    position: relative;
+    padding: 0;
+    text-align: center;
+	font-size:100%;
+	
+	
+}
+#kfeature-head span,#kbestseller-head span,#klatest-head span{
+	position:relative;
+	top:18px;
+	background: transparent;
+	display:inline-block;
+    color: #333;
+    padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+    font-size: 16px;
+    font-weight: bold;
+	border-color:#df5c39;
+	border-style:solid;
+	border-width:2px;
+	border-left:none;
+	border-top:none;
+	border-right:none;
+}
+
+/*
+.breadcrumb{
+	padding: 8px 0;
+    margin-bottom: 30px;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+    font-size: 12px;
+	
+	
+}*/
+.breadcrumb {
+	margin: 0 0 20px 0;
+    padding: 0;
+	border:none;
+    border-bottom: 1px solid #F0F0F0;
+    border-radius: 0px;
+    background: none;
+    padding-bottom: 10px;
+}
+.breadcrumb i {
+	font-size: 15px;
+}
+.breadcrumb > li {
+	text-shadow: none;
+    padding: 0 15px;
+    position: relative;
+    white-space: nowrap;
+}
+.breadcrumb > li > a {
+	color: #444;
+	font-size: 14px;
+}
+.breadcrumb > li + li:before {
+	content: '';
+	padding: 0;
+}
+.breadcrumb > li:after {
+	content: '';
+    display: block;
+    position: absolute;
+    top: 7px;
+    right: -5px;
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid #2383CC;
+    border-bottom: 1px solid #2383CC;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.breadcrumb > li:last-child:after {
+	display: none;
+}
+
+/*styles for the product display boxes*/
+.product-thumb{
+border:none;
+	
+	
+}
+.product-thumb .caption{/*wrap words in description for product captions*/
+	word-wrap:break-word;
+	
+}
+.product-thumb .button-group{
+	display:none;
+	
+}
+
+a{/*color for product names*/
+color:#191970;	
+}
+.product-thumb .price-tax {/*color for the ex taxes of each product*/
+    color: #000000;
+    font-size: 14px;
+    
+}
+.product-thumb .price {/*colour for product price*/
+    color: orange;
+	font-size:14px;
+}
+/*style for the text category on small screens*/
+#menu #category{
+	color:#3c4a55;
+}
+/*
+#kfeature-head span:after{
+	content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 2px;
+    background: #f4a237;
+    left: 0;
+}
+
+#kfeature-head span:before{
+	content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 40px solid #f4a237;
+    right: -20px;
+    border-right: 20px solid transparent;
+	
+}*/
+
+
+/*style for h3 and span within
+border-bottom: 2px solid #ddd;
+    margin: 0;
+    height: 38px;
+    position: relative;
+    padding: 0;
+    text-align: center;
+background: transparent;
+    color: #333;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;*/

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE modification [
+<!ENTITY themeFolder "krishna">
+]>
+<modification>
+  <name>Custom theme modifications</name>
+    <code>custom</code>
+	<version>1.1</version>
+	<author>Krishna Robertson</author>
+	<link>http://www.founditgd.com</link>
+
+<!-- Controller turn the featured module into a slider, instead of static products -->		
+	<file name="catalog/controller/extension/module/featured.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$data['button_compare'] = $this->language->get('button_compare');]]>
+		  </search>
+			<add><![CDATA[
+			//Turn module into slider	
+			$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+			$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+			// Enhanced Admin	
+			]]>
+		  </add>
+		</operation>
+		
+		<operation error="log">
+			<search position="after"><![CDATA[if ($data['products']) {]]>
+		  </search>
+			<add><![CDATA[
+			//allow for loading of side banners in the featured module, the same can be done for other modules like latest
+			//get id of the banner i want displayed,this means that there must be a banner called krishnaBanner to work
+			$query = $this->db->query("SELECT DISTINCT banner_id FROM " . DB_PREFIX . "banner WHERE name = 'krishnaBanner'");
+			$this->load->model('design/banner');
+			$data['banners'] = array();
+			//get images and links etc in banner
+			$results = $this->model_design_banner->getBanner($query->row['banner_id']);
+			
+			foreach ($results as $result) {
+			if ($this->request->server['HTTPS']) {
+				$data['image']= $this->config->get('config_ssl') . 'image/' . $result['image'];
+			$data['banners'][] = array(//banners are the individual images
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => $this->config->get('config_ssl') . 'image/' . $result['image']
+				);
+			} else {
+				$data['image']= $this->config->get('config_url') . 'image/' . $result['image'];
+			$data['banners'][] = array(//banners are the individual images
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => $this->config->get('config_url') . 'image/' . $result['image']
+				);
+			}
+			
+			/*if (is_file(DIR_IMAGE . $result['image'])) {
+				$data['banners'][] = array(//banners are the individual images
+					'title' => $result['title'],
+					'link'  => $result['link'],
+					'image' => $this->config->get('config_url') . 'image/'.$result['image'] //$this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+				);
+			}*/
+		}]]>
+		  </add>
+		</operation>
+</file>
+
+<file name="catalog/controller/extension/module/bestseller.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$data['button_compare'] = $this->language->get('button_compare');]]>
+		  </search>
+			<add><![CDATA[
+			//Turn module into slider	
+			$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+			$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+			// Enhanced Admin	
+			]]>
+		  </add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/extension/module/latest.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$data['button_compare'] = $this->language->get('button_compare');]]>
+		  </search>
+			<add><![CDATA[
+			//Turn module into slider	
+			$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+			$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
+			// Enhanced Admin	
+			]]>
+		  </add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/common/home.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$data['header'] = $this->load->controller('common/header');]]>
+		  </search>
+			<add><![CDATA[//add slider to home page
+			$data['full_width_slide'] = $this->load->controller('extension/module/full_width_slide');
+			]]>
+		  </add>
+		</operation>
+	</file>
+	<!--insert full width slider after header in template file on home page, this means the header is separate from the full width slider-->
+	<file name="catalog/view/theme/&themeFolder;/template/common/home.tpl">
+			<operation>
+			<search position="after"><![CDATA[<?php echo $header; ?>
+			]]></search>
+			<add><![CDATA[
+				<?php //echo $full_width_slide; ?>
+			]]></add>
+		</operation>	
+	</file>
+	<!-- insert javascript file for zoomimg-->
+	 <file name="catalog/view/theme/&themeFolder;/template/common/header.tpl">
+	   <operation>
+		   <search position="after"><![CDATA[<script src="catalog/view/javascript/common.js" type="text/javascript"></script>]]></search>
+		   <add>
+			   <![CDATA[
+					<script src="catalog/view/javascript/jquery.elevatezoom.min.js" type="text/javascript"></script>
+					<link  href="catalog/view/css/jquery.fancybox.min.css" rel="stylesheet">
+					<script src="catalog/view/javascript/jquery.fancybox.min.js" type="text/javascript" ></script>
+			   ]]>
+		   </add>
+		</operation>
+		  
+	</file>
+	
+	
+	
+</modification>
