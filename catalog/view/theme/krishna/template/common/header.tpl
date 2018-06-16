@@ -142,7 +142,7 @@ border-color: #3c4a55 #1f90bb #145e7a;
 	<div class="container">
 	<div class="row">
 	
-
+<!--testing git-->
     
 	<div id="currency-menu" class="col-sm-1">
       <?php echo $currency; ?>
