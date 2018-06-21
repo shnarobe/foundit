@@ -18,9 +18,10 @@ class ControllerCustomSearch extends Controller {
 
 		$url = '';
 		//jquery auto complete sets a parameter called term that contains the word type by the user and attaches it to the query string
-		if (isset($this->request->get['term'])) {
-			$url .= '&term=' . urlencode(html_entity_decode($this->request->get['term'], ENT_QUOTES, 'UTF-8'));
-			$search = $this->request->get['term'];
+		//the easy autocomplete plugin uses a parameter called phrase
+		if (isset($this->request->get['phrase'])) {
+			$url .= '&phrase=' . urlencode(html_entity_decode($this->request->get['phrase'], ENT_QUOTES, 'UTF-8'));
+			$search = $this->request->get['phrase'];
 		}
 		else{
 			$search = '';
@@ -132,7 +133,7 @@ class ControllerCustomSearch extends Controller {
 
 		$data['products'] = array();
 
-		if (isset($this->request->get['term'])) {
+		if (isset($this->request->get['phrase'])) {
 			$filter_data = array(
 				'filter_name'         => $search,//filter name is the search word
 				'filter_tag'          => '',
@@ -146,7 +147,7 @@ class ControllerCustomSearch extends Controller {
 			);
 
 			//$product_total = $this->model_custom_product->getTotalProducts($filter_data);
-			
+			//call model file custom/product->getProducts to perform the search
 			$results = $this->model_custom_product->getProducts($filter_data);
 			
 			$this->response->setOutput(json_encode($results));

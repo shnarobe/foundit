@@ -9,9 +9,13 @@ class ModelCustomProduct extends Model {
 
 		if ($query->num_rows) {
 			return array(
-				'label'             => $query->row['name'],
+			//easy auto complete format
+				'name'  => $query->row['name'],
+				'code'	=>$query->row['product_id']
+			//jquery ui format
+				/*'name'             => $query->row['name'],
 				'value'       => $query->row['name'],
-				'pid'	=>$query->row['product_id']
+				'pid'	=>$query->row['product_id']*/
 				/*'description'      => $query->row['description'],
 				'meta_title'       => $query->row['meta_title'],
 				'meta_description' => $query->row['meta_description'],
@@ -119,7 +123,7 @@ class ModelCustomProduct extends Model {
 		//var_dump($query);
 
 		foreach ($query->rows as $result) {
-			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			$product_data[] = $this->getProduct($result['product_id']);
 		}
 	
 

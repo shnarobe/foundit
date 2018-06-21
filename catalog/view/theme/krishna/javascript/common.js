@@ -75,8 +75,8 @@ $(document).ready(function() {
 			$('nav #search input[name=\'search\']').parent().find('button').trigger('click');
 		}
 	});
-	//custom for auto complete
-	var availableTutorials  =  [
+	//custom for auto complete for jquery ui
+	/*var availableTutorials  =  [
                "ActionScript",
                "Bootstrap",
                "C",
@@ -103,7 +103,32 @@ $(document).ready(function() {
 
 					location = url_1;
 				}
-            });
+            });*/
+			//end custom
+			//begin custom auto complete for easyautocomplete plugins
+			//1. Prepare the route for calling the search controller
+			var url_k = $('base').attr('href') + 'index.php?route=custom/search&phrase=';
+			var options = {
+			url: function(phrase) {
+				return url_k+phrase;//pass the phrase query string along with the url
+			},
+
+			getValue: "name",//this returns the display name in the json object
+			list: {
+				onClickEvent: function() {
+			//get product id			
+			var value = $("#search-kris").getSelectedItemData().code;
+			var url_1= $('base').attr('href') + 'index.php?route=product/product';
+					url_1 += '&product_id=' + encodeURIComponent(value);
+			location=url_1;
+			
+		}
+					}	
+			};
+			//2. Register the autocomplete on the search box 
+			$("#search-kris").easyAutocomplete(options);
+			
+			
 			//end custom
 	// Menu
 	$('#menu .dropdown-menu').each(function() {
