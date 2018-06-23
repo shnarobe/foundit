@@ -115,15 +115,16 @@ $(document).ready(function() {
 
 			getValue: "name",//this returns the display name in the json object
 			list: {
-				onClickEvent: function() {
+				onChooseEvent: function() {
 			//get product id			
 			var value = $("#search-kris").getSelectedItemData().code;
 			var url_1= $('base').attr('href') + 'index.php?route=product/product';
 					url_1 += '&product_id=' + encodeURIComponent(value);
 			location=url_1;
 			
-		}
-					}	
+				}
+			},
+			theme:"blue-light"
 			};
 			//2. Register the autocomplete on the search box 
 			$("#search-kris").easyAutocomplete(options);

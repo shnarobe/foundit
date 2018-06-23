@@ -23,8 +23,8 @@
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!--<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />-->
-<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!--<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>-->
 <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <script src="https://use.fontawesome.com/c53376383d.js"></script>-->
@@ -150,9 +150,8 @@ border-color: #3c4a55 #1f90bb #145e7a;
       <?php echo $currency; ?>
     <?php //echo $language; ?>
 	</div>
-	<div class="col-sm-7">
-	</div>
-      <div class="col-sm-4 pull-right" style="height:30px; float:right;">
+	
+      <div class="col-sm-3 col-sm-offset-6" style="height:30px;">
 	  <div id="top-links" class="nav">
       <ul class="list-inline">
        <!-- <li><a href="<?php //echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php //echo $telephone; ?></span></li>-->
@@ -180,7 +179,7 @@ border-color: #3c4a55 #1f90bb #145e7a;
     </div>
 	
       </div>
-     <div class="col-sm-2 pull-right" style="float:right;">
+     <div class="col-sm-2" style="">
 		<?php echo $cart; ?>
 		</div>
     
